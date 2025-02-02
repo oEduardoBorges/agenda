@@ -40,11 +40,11 @@ watch(showModal, (newValue) => {
                 <form @submit.prevent="(e) => {$emit('createAgenda', state); showModal = false }" id="form">
                     <div>
                         <label for="nome" class="font-semibold w-24 custom-placeholder" style="color: #dbdadb;">Nome</label>
-                        <InputText id="nome" class="flex-auto custom-placeholder" autocomplete="off" v-model="state.nome" required placeholder="Nome do contato da agenda"  style="background-color:#18181b; color: #dbdadb; border: 1px solid #555; border-radius: 4px; padding: 0.5rem;"/>
+                        <InputText id="nome" class="flex-auto custom-placeholder" autocomplete="off" v-model="state.nome" required placeholder="Nome"  style="background-color:#18181b; color: #dbdadb; border: 1px solid #555; border-radius: 4px; padding: 0.5rem;"/>
                     </div>
                     <div>
                         <label for="telefone" class="font-semibold w-24 custom-placeholder" style="color: #dbdadb;">Telefone</label>
-                        <InputMask id="telefone" mask="(99) 99999-9999" class="custom-placeholder" placeholder="(99) 99999-9999" v-model="state.telefone" style="background-color:#18181b; color: #dbdadb; border: 1px solid #555; border-radius: 4px; padding: 0.5rem;"/>
+                        <InputMask id="telefone" mask="(99) 99999-9999" class="custom-placeholder" placeholder="(47) 98877-6655" v-model="state.telefone" style="background-color:#18181b; color: #dbdadb; border: 1px solid #555; border-radius: 4px; padding: 0.5rem;"/>
                     </div>
                     <div>
                         <label for="email" class="font-semibold w-24 custom-placeholder" style="color: #dbdadb;">E-mail</label>
