@@ -1,0 +1,52 @@
+services:
+  frontend:
+    build:
+      context: ./agenda-web
+    ports:
+      - "3000:80"
+    volumes:
+      - ./agenda-web:/app
+    networks:
+      - agenda-network
+    environment:
+      - API_URL=http://backend:9000/
+
+  backend:
+    build:
+      context: ./agenda-api
+    ports:
+      - "9000:9000"
+    networks:
+      - agenda-network
+    depends_on:
+      - db
+    environment:
+      - DB_CONNECTION=pgsql
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_DATABASE=agenda_db
+      - DB_USERNAME=agenda_user
+      - DB_PASSWORD=m9R9#l6l!£|K
+    command: >
+      sh -c "php artisan migrate --force &&
+             php artisan serve --host=0.0.0.0 --port=9000"
+
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: agenda_user
+      POSTGRES_PASSWORD: m9R9#l6l!£|K
+      POSTGRES_DB: agenda_db
+    networks:
+      - agenda-network
+
+volumes:
+  pgdata:
+
+networks:
+  agenda-network:
+    driver: bridge
