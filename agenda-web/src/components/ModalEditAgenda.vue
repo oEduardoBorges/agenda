@@ -58,7 +58,7 @@ const showModal = defineModel<boolean>({ required: true });
                 </div>
                 <div>
                     <label for="endereco" class="font-semibold w-24 custom-placeholder" style="color: #dbdadb;">Endereço</label>
-                    <InputText id="endereco" class="flex-auto custom-placeholder" autocomplete="off" v-model="state.endereco" placeholder="Ex: Avenida Säo Joäo, 1800 - Santa Cecília, SP" style="background-color:#18181b; color: #dbdadb; border: 1px solid #555; border-radius: 4px; padding: 0.5rem;"/>
+                    <InputText id="endereco" class="flex-auto custom-placeholder" autocomplete="off" v-model="state.endereco" placeholder="Ex: Avenida São João, 1800 - Santa Cecília, SP" style="background-color:#18181b; color: #dbdadb; border: 1px solid #555; border-radius: 4px; padding: 0.5rem;"/>
                 </div>
                 <div style="display: flex; flex-direction: row; gap: 0.5rem; margin-top: 1rem;">
                     <Button type="button" label="Cancelar" severity="secondary" @click="showModal = false" style="background-color: #2c3e50; color: #dbdadb; border: none; padding: 0.5rem 1.5rem; border-radius: 4px; cursor: pointer; font-weight: 600; transition: background-color 0.3s ease;" />
