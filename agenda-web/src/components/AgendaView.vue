@@ -224,15 +224,18 @@ const filteredRows = computed(() => {
                     v-model="filteredRows" 
                     @edit-save="editAgenda" 
                     @remove-item="data => {
-                        confirm.require({
-                            accept: () => deleteAgenda(data),
-                            header: 'Excluir agenda',
-                            icon: 'pi pi-exclamation-circle',
-                            acceptLabel: 'Sim',
-                            rejectLabel: 'Não',
-                            message: 'Excluir agenda permanentemente?',
-                        })
-                    }" 
+    confirm.require({
+        accept: () => deleteAgenda(data),
+        header: 'Excluir agenda',
+        icon: 'pi pi-exclamation-circle',
+        acceptLabel: 'Sim',
+        rejectLabel: 'Não',
+        message: 'Excluir agenda permanentemente?',
+        acceptClass: 'p-button-danger', // Para o botão 'Sim' com cor vermelha
+        rejectClass: 'p-button-secondary' // Para o botão 'Não' com cor cinza
+    })
+}"
+ 
                 />
                 <div 
                     style="display: flex; justify-content: center; align-items: center; height: 10rem; background-color: #18181b; border-radius: 4px;" 
@@ -250,7 +253,7 @@ const filteredRows = computed(() => {
 
 /* Estilo para a tabela */
 .table-agenda {
-    background-color: #18181b;
+    background-color: #34495e;
     color: #ecf0f1;
     border-radius: 4px;
 }
@@ -262,7 +265,7 @@ const filteredRows = computed(() => {
 }
 
 .table-agenda td {
-    background-color: #18181b;
+    background-color: #34495e;
     color: #ecf0f1;
     border-bottom: 1px solid #555;
 }
@@ -274,4 +277,16 @@ const filteredRows = computed(() => {
 .custom-placeholder::placeholder {
     color: #dbdadb !important;
 }
+
+/* Adicionando cores personalizadas */
+.p-button-danger {
+    background-color: #f44336; /* Cor personalizada para o botão Sim */
+    border-color: #f44336;
+}
+
+.p-button-secondary {
+    background-color: #9e9e9e; /* Cor personalizada para o botão Não */
+    border-color: #9e9e9e;
+}
+
 </style>
